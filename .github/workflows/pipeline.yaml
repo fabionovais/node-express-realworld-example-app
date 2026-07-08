@@ -1,0 +1,38 @@
+name: Deploy API
+
+on:
+
+  push:
+
+    branches:
+      - main
+
+jobs:
+
+  deploy:
+
+    runs-on: self-hosted
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Build Image
+      run: |
+        docker build -t api-node-teste:latest .
+
+    - name: Load image into Kind
+      run: |
+        kind load docker-image api-node-teste:latest --name lab-fabio
+
+    - name: Deploy
+      run: |
+        kubectl apply -f k8s/
+
+    - name: Restart Deployment
+      run: |
+        kubectl rollout restart deployment/api-node-teste
+
+    - name: Wait rollout
+      run: |
+        kubectl rollout status deployment/api-node-teste

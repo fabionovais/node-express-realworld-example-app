@@ -79,3 +79,12 @@ npm ci && npx prisma migrate deploy && node dist/api/main.js
 
 npm install (cria a pasta node modules e baixa as dependências)
 npm run build (faz a transcrição de tipescript para javascript na pasta dist)
+
+npx nx build api
+docker build -t api-node-teste .
+docker build --no-cache -t api-node-teste .
+docker run --rm -p 8080:3000 api-node-teste
+kubectl -n onecont port-forward svc/node-api 8080:8080
+
+
+
