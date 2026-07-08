@@ -86,5 +86,6 @@ docker build --no-cache -t api-node-teste .
 docker run --rm -p 8080:3000 api-node-teste
 kubectl -n onecont port-forward svc/node-api 8080:8080
 teste pipeline 2
+teste pipeline 3
 
 
