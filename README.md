@@ -72,3 +72,10 @@ Run the following command to:
 ```shell
 npm ci && npx prisma migrate deploy && node dist/api/main.js
 ```
+
+
+
+
+
+npm install (cria a pasta node modules e baixa as dependências)
+npm run build (faz a transcrição de tipescript para javascript na pasta dist)
