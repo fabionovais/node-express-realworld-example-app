@@ -31,8 +31,8 @@ jobs:
 
     - name: Restart Deployment
       run: |
-        kubectl -n onecont rollout restart deployment/api-node-teste
+        kubectl -n onecont rollout restart deployment/node-api
 
     - name: Wait rollout
       run: |
-        kubectl -n onecont rollout status deployment/api-node-teste
+        kubectl -n onecont rollout status deployment/node-api
